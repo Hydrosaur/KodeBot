@@ -62,11 +62,6 @@ function parseText(string){
 				}
 			} 
 		} else {
-			$('#chat').ajax({
-			  url: "https://www.google.com/search?q=" + string.replace(/ /g, "+").replace(/\?/g, "%3F")
-			}).done(function(data) {
-			    console.log(data);
-			});
 		}
 	// Human Opinion Handler
 	if(spaced.includes("i") && spaced.includes("like")){
