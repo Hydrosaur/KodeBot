@@ -10,11 +10,12 @@ function submitVal() {
 
 function clearChat(){
 	$("#chat").html("Bot: WAIT WAIT WAIT&#13;&#10;WOAH WOAH WOAH.&#13;&#10;HOLD IT THERE.&#13;&#10;DON'T KILL ME PLS!!!!");
+	responsiveVoice.speak("WAIT WAIT WAIT.WOAH WOAH WOAH.HOLD IT THERE.DON'T KILL ME PLS!!!!");
 	setTimeout(function(){
 		$("#chat").html("					Chat with the bot:&#13;&#10;");
 		$("#botscript").remove();
 		$("html").append("<script type='text/javascript' src='bot.js' id='botscript'></script>");
-	}, 3000);
+	}, 5000);
 }
 
 $("html").on("keydown", function(e){
