@@ -35,8 +35,8 @@ function parseText(string){
 				return eww;
 			}
 		} else {
-			hates.push(spaced[spaced.indexOf("like") + 1].substring(0, spaced[spaced.indexOf("like") + 1].length - 1));
-			return "No I don't like " + spaced[spaced.indexOf("like") + 1].substring(0, spaced[spaced.indexOf("like") + 1].length - 1) + "...";
+			hates.push(spaced[spaced.indexOf("like") + 1].substring(0, spaced[spaced.indexOf("like") + 1].length));
+			return "No I don't like " + spaced[spaced.indexOf("like") + 1].substring(0, spaced[spaced.indexOf("like") + 1].length) + "...";
 		}
 	}
 	// Advice Handler
@@ -53,8 +53,7 @@ function parseText(string){
 			}else if(spaced.includes("would")){
 				return "I dont know much about you...";
 			}
-		} else {
-			if(spaced.includes("should") && spaced.includes("i")){
+		} else if(spaced.includes("should") && spaced.includes("i")){
 				var opin = string.substring(string.lastIndexOf("should i ")+9,string.length);
 				if(Math.floor((Math.random() * 2)) === 1){
 					return "Yea you should" + opin;
@@ -62,8 +61,13 @@ function parseText(string){
 					return "No, I wouldn't" + opin;
 				}
 			} 
+		} else {
+			$.ajax({
+			  url: "https://www.google.com/search?q=" + string.replace(/ /g, "+").replace(/\?/g, "%3F");
+			}).done(function(data) {
+			    console.log(data);
+			});
 		}
-	}
 	// Human Opinion Handler
 	if(spaced.includes("i") && spaced.includes("like")){
 		var opin = string.substring(string.lastIndexOf("like")+4,string.length).toLowerCase();
