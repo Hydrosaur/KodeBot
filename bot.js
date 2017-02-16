@@ -62,8 +62,8 @@ function parseText(string){
 				}
 			} 
 		} else {
-			$.ajax({
-			  url: "https://www.google.com/search?q=" + string.replace(/ /g, "+").replace(/\?/g, "%3F")
+			$('#chat').ajax({
+			  url: "https://www.google.com/search?q=" + string.replace(/ /g, "+").replace(/\?/g, "%3F");
 			}).done(function(data) {
 			    console.log(data);
 			});
